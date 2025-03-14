@@ -33,7 +33,7 @@ int main() {
         printf("%d ", arr[i]);
     }
     printf("\n");
-
+    free(arr);
     //libera la memoria
     return 0;
 }

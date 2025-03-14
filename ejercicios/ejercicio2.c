@@ -49,6 +49,7 @@ int main() {
     else{
         printf("los valores salen del rango");    
     }
+    free(matrix);
     return 0;
     }
     
