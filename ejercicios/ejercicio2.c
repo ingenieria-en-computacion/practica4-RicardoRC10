@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 int main() {
     int m, n;
     printf("Ingrese el número de filas: ");
@@ -17,13 +16,13 @@ int main() {
     printf("Matriz inicializada con ceros:\n");
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            scanf("%p\t", (matrix + i + j));
+            scanf("%d", &matrix[i*n + j]);
         }
         printf("\n");
     }
-    for (int i = 0; i < m; i++) {
+   for (int i = 0; i < m; i++) {
         for (int j = 0; j < n; j++) {
-            printf("%d\t", *(matrix + i + j));
+            printf("%d \t", matrix[i*n + j]);
         }
         printf("\n");
     }
@@ -32,21 +31,24 @@ int main() {
     int row, col, value;
     //lee los varlores solicitados
     printf("Ingrese el número de filas: ");
-    scanf("%i", &row);
+    scanf("%d", &row);
     printf("Ingrese el número de columnas: ");
-    scanf("%i", &col);
+    scanf("%d", &col);
     printf("Ingrese el valor ");
-    scanf("%i", &value);
-    matrix[(row-1) + (col-1)] = value;
-
-    printf("Matriz actualizada:\n");
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < n; j++) {
-            printf("%d\t", *(matrix + i + j));
-        }
+    scanf("%d", &value);
+    if(row>=0 && row<=m && col >= 0 && col <=n){
+        matrix[(row-1) + (col-1)] = value;
+        printf("Matriz actualizada:\n");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                printf("%d\t", matrix[i*n + j]);
+            }
         printf("\n");
     }
-
-    free(matrix);
+    } 
+    else{
+        printf("los valores salen del rango");    
+    }
     return 0;
-}
+    }
+    
